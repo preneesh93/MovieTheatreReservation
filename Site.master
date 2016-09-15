@@ -1,0 +1,290 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="Site" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Jiffy Cinemas - Your Movie Destination!</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link href="css/modern-business.css" rel="stylesheet" />
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+        function LoginClick() {
+        	$find("ModalPopupExtender1").show();
+        }
+    </script>
+    <link href="StyleSheet.css" rel="stylesheet" />
+
+
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="Default.aspx">Jiffy Cinemas</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <asp:HyperLink ID="movie_hyper" runat="server" NavigateUrl="~/Movies.aspx">Movies</asp:HyperLink>
+                    </li>
+                    <li>
+                        <a href="MovieDetails.aspx">Showtimes</a>
+                    </li>
+                    <li>
+                        <asp:HyperLink ID="login_hyper" NavigateUrl="~/Login_Signup.aspx" runat="server" onmouseclick="LoginClick()">Login/Signup</asp:HyperLink>
+                    </li>
+                </ul>
+                <form id="loginForm" runat="server" >
+                    <div>
+                        <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></asp:ToolkitScriptManager>
+                        <asp:ModalPopupExtender ID="ModalPopupExtender1" runat="server" BehaviorID="loginPopUp" TargetControlID="login_hyper"
+                            PopupControlID="loginPanel">
+                        </asp:ModalPopupExtender>
+
+                        <asp:Panel ID="loginPanel" runat="server" class="modal-body">
+                            <div class="modal-content">
+
+                                <table style="width: 76%; height: 288px;">
+                                    <tr>
+                                        <td class="auto-style10">&nbsp;</td>
+                                        <td class="auto-style2">
+                                            <asp:Label ID="Label1" runat="server" Font-Bold="False" Font-Italic="False" Font-Names="Berlin Sans FB" Font-Size="Large" ForeColor="#00CCFF" Text="LOGIN TO YOUR ACCOUNT"></asp:Label>
+                                        </td>
+                                        <td class="auto-style24">&nbsp;<asp:Label ID="Label2" runat="server" Font-Names="Berlin Sans FB" Font-Size="Large" ForeColor="#00CCFF" Text="DON'T HAVE AN ACCOUNT?"></asp:Label>
+                                        </td>
+                                        <td class="auto-style1">
+                                            <asp:ImageButton ID="ImageButton1" runat="server"
+                                                OnClientClick="$find('loginPopUp').hide(); 
+                                            return false;"
+                                                Height="30px" ImageUrl="~/Images/download.png" Width="27px" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style15"></td>
+                                        <td class="auto-style16">
+                                            <asp:Label ID="Label3" runat="server" Font-Names="Book Antiqua" Font-Size="Medium" ForeColor="Black" Text="Email"></asp:Label>
+                                        </td>
+                                        <td class="auto-style25"></td>
+                                        <td class="auto-style17">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style18"></td>
+                                        <td class="auto-style19">
+                                            <asp:TextBox ID="TextBox1" runat="server" Height="24px" Width="262px"></asp:TextBox>
+                                        </td>
+                                        <td class="auto-style26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="Button26" runat="server" BackColor="#33CCCC" Height="43px" Text="REGISTER NOW" Width="248px" OnClick="Button2_Click"/>
+                                        </td>
+                                        <td class="auto-style20">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style21"></td>
+                                        <td class="auto-style22">
+                                            <asp:Label ID="Label4" runat="server" Font-Names="Book Antiqua" Font-Size="Medium" Text="Password"></asp:Label>
+                                        </td>
+                                        <td class="auto-style27"></td>
+                                        <td class="auto-style23">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style13">&nbsp;</td>
+                                        <td class="auto-style4">
+                                            <asp:TextBox ID="TextBox2" runat="server" Height="24px" Width="262px"></asp:TextBox>
+                                            <br />
+                                        </td>
+                                        <td class="auto-style28">&nbsp;</td>
+                                        <td class="auto-style5">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style14">&nbsp;</td>
+                                        <td class="auto-style8"></td>
+                                        <td class="auto-style29"></td>
+                                        <td class="auto-style9">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style13">&nbsp;</td>
+                                        <td class="auto-style4">
+                                            <asp:Button ID="Button1" runat="server" BackColor="#66CCFF" Height="42px" Text="LOGIN" OnClick="Button1_Click" Width="268px" />
+                                        </td>
+                                        <td class="auto-style28">&nbsp;</td>
+                                        <td class="auto-style5">&nbsp;</td>
+                                    </tr>
+                                </table>
+                                <br />
+                            </div>
+                        </asp:Panel>
+                    </div>
+                </form>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Header Carousel -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="fill" style="background-image: url('http://s23.postimg.org/3vh1rdejf/jiffy.jpg');"></div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image: url('http://s2.postimg.org/4anw4yx9l/image_2.jpg');"></div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image: url('http://s29.postimg.org/7n3480brr/image_1.jpg');"></div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Marketing Icons Section -->
+               <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">WELCOME TO JIFFY CINEMAS</h2>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="thumbnail">
+                    <img class="img-responsive" src="Images/cinema.jpg" alt=""/>
+                    <div class="caption">
+                        <h3>Jiffy Cinemas<br/>
+                            <small>Home of Entertainment</small>
+                        </h3>
+                        <p>Jiffy Cinemas is Chennai's hottest entertainment destination for people from all walks of life, across a wide age group and user profile. Our goal is to provide you with the best, comfortable environment for your Entertainment needs!</p>
+                        <ul class="list-inline">
+                            <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="thumbnail">
+                    <img class="img-responsive" src="Images/appofficial.jpg" alt=""/>
+                    <div class="caption">
+                        <h3>Official APP<br/>
+                            <small>Windows Store</small>
+                        </h3>
+                        <p>Our movie tickets will soon be at your fingertips wherever you go!
+							With the new app, you can book tickets, check show timings and Availability!
+							Coming Soon to the Windows Store!</p>
+						<br />
+                        <ul class="list-inline">
+                            <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="thumbnail">
+                    <img class="img-responsive" src="Images/ecstacy.jpg" alt=""/>
+                    <div class="caption">
+                        <h3>Jiffy Ecstacy<br/>
+                            <small>Restaurant/Diner</small>
+                        </h3>
+                        <p>Welcome to the modern and contemporary style of dining. Ectacy takes you on a culinary fantasy that can only be defined as unique and exquiste. 
+							Dine in with family and friends and enjoy our Free WiFi!</p>
+						<br />
+                        <ul class="list-inline">
+                            <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Jiffy Cinemas-2014</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- /.container -->
+
+    <!-- jQuery Version 1.11.0 -->
+    <script src="js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+        $('.carousel').carousel({
+            interval: 5000 //changes the speed
+        })
+    </script>
+
+</body>
+
+</html>
+

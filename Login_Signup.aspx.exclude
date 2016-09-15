@@ -1,0 +1,222 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login_Signup.aspx.cs" Inherits="Login_Signup" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+        .auto-style1
+        {
+            height: 31px;
+        }
+
+        .auto-style2
+        {
+            height: 31px;
+            width: 315px;
+        }
+
+        .auto-style4
+        {
+            width: 315px;
+            height: 23px;
+        }
+
+        .auto-style5
+        {
+            height: 23px;
+        }
+
+        .auto-style8
+        {
+            width: 315px;
+            height: 16px;
+        }
+
+        .auto-style9
+        {
+            height: 16px;
+        }
+
+        .auto-style10
+        {
+            height: 31px;
+            width: 81px;
+        }
+
+        .auto-style13
+        {
+            width: 81px;
+            height: 23px;
+        }
+
+        .auto-style14
+        {
+            width: 81px;
+            height: 16px;
+        }
+
+        .auto-style15
+        {
+            width: 81px;
+            height: 20px;
+        }
+
+        .auto-style16
+        {
+            width: 315px;
+            height: 20px;
+        }
+
+        .auto-style17
+        {
+            height: 20px;
+        }
+
+        .auto-style18
+        {
+            width: 81px;
+            height: 12px;
+        }
+
+        .auto-style19
+        {
+            width: 315px;
+            height: 12px;
+        }
+
+        .auto-style20
+        {
+            height: 12px;
+        }
+
+        .auto-style21
+        {
+            width: 81px;
+            height: 8px;
+        }
+
+        .auto-style22
+        {
+            width: 315px;
+            height: 8px;
+        }
+
+        .auto-style23
+        {
+            height: 8px;
+        }
+
+        .auto-style24
+        {
+            height: 31px;
+            width: 316px;
+        }
+
+        .auto-style25
+        {
+            width: 316px;
+            height: 20px;
+        }
+
+        .auto-style26
+        {
+            width: 316px;
+            height: 12px;
+        }
+
+        .auto-style27
+        {
+            width: 316px;
+            height: 8px;
+        }
+
+        .auto-style28
+        {
+            width: 316px;
+            height: 23px;
+        }
+
+        .auto-style29
+        {
+            width: 316px;
+            height: 16px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+
+            <table style="width: 76%; height: 288px;">
+                <tr>
+                    <td class="auto-style10">&nbsp;</td>
+                    <td class="auto-style2">
+                        <asp:Label ID="Label1" runat="server" Font-Bold="False" Font-Italic="False" Font-Names="Berlin Sans FB" Font-Size="Large" ForeColor="#00CCFF" Text="LOGIN TO YOUR ACCOUNT"></asp:Label>
+                    </td>
+                    <td class="auto-style24">&nbsp;<asp:Label ID="Label2" runat="server" Font-Names="Berlin Sans FB" Font-Size="Large" ForeColor="#00CCFF" Text="DON'T HAVE AN ACCOUNT?"></asp:Label>
+                    </td>
+                    <td class="auto-style1">
+                        <asp:ImageButton ID="ImageButton1" runat="server"
+                            OnClientClick="$find('loginPopUp').hide(); 
+                                            return false;" Height="30px" ImageUrl="~/Images/download.png" Width="27px" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style15"></td>
+                    <td class="auto-style16">
+                        <asp:Label ID="Label3" runat="server" Font-Names="Book Antiqua" Font-Size="Medium" ForeColor="Black" Text="Email"></asp:Label>
+                    </td>
+                    <td class="auto-style25"></td>
+                    <td class="auto-style17">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style18"></td>
+                    <td class="auto-style19">
+                        <asp:TextBox ID="TextBox1" runat="server" Height="24px" Width="262px"></asp:TextBox>
+                    </td>
+                    <td class="auto-style26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="Btn" runat="server" BackColor="#33CCCC" Height="43px" Text="REGISTER NOW" Width="248px" OnClick="Btn_Click" />
+                    </td>
+                    <td class="auto-style20">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style21"></td>
+                    <td class="auto-style22">
+                        <asp:Label ID="Label4" runat="server" Font-Names="Book Antiqua" Font-Size="Medium" Text="Password"></asp:Label>
+                    </td>
+                    <td class="auto-style27"></td>
+                    <td class="auto-style23">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style13">&nbsp;</td>
+                    <td class="auto-style4">
+                        <asp:TextBox ID="TextBox2" runat="server" Height="24px" Width="262px"></asp:TextBox>
+                        <br />
+                    </td>
+                    <td class="auto-style28">&nbsp;</td>
+                    <td class="auto-style5">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style14">&nbsp;</td>
+                    <td class="auto-style8"></td>
+                    <td class="auto-style29"></td>
+                    <td class="auto-style9">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style13">&nbsp;</td>
+                    <td class="auto-style4">
+                        <asp:Button ID="Button1" runat="server" BackColor="#66CCFF" Height="42px" Text="LOGIN" Width="268px" />
+                    </td>
+                    <td class="auto-style28">&nbsp;</td>
+                    <td class="auto-style5">&nbsp;</td>
+                </tr>
+            </table>
+
+        </div>
+    </form>
+</body>
+</html>

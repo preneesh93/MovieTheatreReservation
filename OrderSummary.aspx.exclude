@@ -1,0 +1,71 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.master" AutoEventWireup="true" CodeFile="OrderSummary.aspx.cs" Inherits="OrderSummary" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+	<h1 class="page-header">YOUR ORDERS</h1>
+	<h3 class="page-header">Ticket Summary</h3>
+	<div>
+		<asp:GridView ID="ticketGrid" runat="server" AutoGenerateColumns="False" ShowFooter="True" Height="219px" Width="919px">
+			<Columns>
+				<asp:TemplateField HeaderText="Movie Name">
+					<ItemTemplate>
+						<asp:Label ID="Label4" runat="server" Font-Bold="False" Font-Names="Book Antiqua" Font-Size="Medium" Text='<%#: Eval("MovieName") %>'></asp:Label>
+					</ItemTemplate>
+				</asp:TemplateField>
+				<asp:TemplateField HeaderText="Show Date">
+					<ItemTemplate>
+						<asp:Label ID="Label5" runat="server" Font-Names="Book Antiqua" Font-Size="Medium" Text='<%#: Eval("show_Date") %>'></asp:Label>
+					</ItemTemplate>
+				</asp:TemplateField>
+				<asp:TemplateField HeaderText="Show Time">
+					<ItemTemplate>
+						<asp:Label ID="Label6" runat="server" Font-Names="Book Antiqua" Font-Size="Medium" Text='<%#: Eval("ShowTime") %>'></asp:Label>
+					</ItemTemplate>
+				</asp:TemplateField>
+				<asp:TemplateField HeaderText="Seat No">
+					<ItemTemplate>
+						<asp:Label ID="Label7" runat="server" Font-Names="Book Antiqua" Font-Size="Medium" Text='<%#: Eval("SeatNo") %>'></asp:Label>
+					</ItemTemplate>
+				</asp:TemplateField>
+			</Columns>
+			<HeaderStyle BackColor="#00CCFF" Font-Bold="True" Font-Names="Book Antiqua" Font-Size="Large" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
+		</asp:GridView>
+	</div>
+	<h3 class="page-header">Food Summary</h3>
+	<div>
+		<asp:GridView ID="foodGrid" runat="server" AutoGenerateColumns="False" Height="181px" Width="598px">
+			<Columns>
+				<asp:TemplateField HeaderText="Food Item">
+					<ItemTemplate>
+						<asp:DropDownList ID="DropDownList1" runat="server"  DataSourceID="SqlDataSource1" DataTextField="FoodName" DataValueField="Amount" BackColor="#00CCFF" Font-Names="Book Antiqua" Font-Size="Medium" ForeColor="White" Height="23px" Width="145px">
+						</asp:DropDownList>
+					</ItemTemplate>
+				</asp:TemplateField>
+				<asp:TemplateField HeaderText="Cost">
+					<ItemTemplate>
+						<asp:Label ID="Label2" runat="server" Font-Italic="False" Font-Names="Book Antiqua" Font-Size="Medium" Text='<%#: Eval("Amount") %>'></asp:Label>
+					</ItemTemplate>
+				</asp:TemplateField>
+				<asp:TemplateField HeaderText="Quantity">
+					<ItemTemplate>
+						<asp:TextBox ID="TextBox1" runat="server" Font-Names="Book Antiqua" Font-Size="Medium" Height="18px" Width="144px"></asp:TextBox>
+					</ItemTemplate>
+				</asp:TemplateField>
+			</Columns>
+			<HeaderStyle BackColor="#00CCFF" BorderColor="Black" Font-Bold="True" Font-Names="Book Antiqua" Font-Size="Large" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
+		</asp:GridView>
+		<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:JiffyCinemasConnectionString %>" 
+			  SelectCommand="SELECT [FoodName], [Amount] FROM [FoodItem]"></asp:SqlDataSource>
+	</div>
+	<br />
+	<br />
+	<div>
+		<asp:Label ID="label1" runat="server" Text="Grand Total = " Font-Bold="True" Font-Names="Book Antiqua" Font-Size="X-Large" ForeColor="#00CCFF" />
+		<asp:Label ID="lblTotal" runat="server" Font-Bold="True" Font-Names="Book Antiqua" Font-Size="X-Large" ForeColor="Lime" />
+	</div>
+	<br />
+	<div style="align-items:center">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<asp:Button ID="paybutton" runat="server" BackColor="#00CCFF" Font-Bold="True" Font-Names="Book Antiqua" Font-Size="Large" ForeColor="White" Height="46px" Text="Make Payment" Width="193px" />
+	</div>
+</asp:Content>
+
